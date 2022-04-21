@@ -20,7 +20,7 @@ include 'navbar.php';
       </div>
       <div class="d-flex flex-row justify-content-evenly">
         <a href="sign_in.php" class="btn btn-primary">Sign in</a>
-        <a href="#" class="btn btn-secondary">Sign up</a>
+        <a href="sign_up.php" class="btn btn-secondary">Sign up</a>
         
       </div>
     </div>

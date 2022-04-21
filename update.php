@@ -4,10 +4,13 @@ include 'class.php';
 include 'head.php';
 include 'navbar.php';
 
+$testobj = new User();
+$id = $_GET['id'];
+$row = $testobj -> getacffichage($id);
+
 if(isset($_POST['sent'])){
-    
-  $testobj = new User();
-  $testobj->addContact($_POST['username'], $_POST['phone'] ,$_POST['email'],$_POST['addres']);
+  
+  $testobj->editContact($_POST['username'],$_POST['email'], $_POST['phone'] ,$_POST['addres'],$_GET['id']);
   header('location: contact.php');
   }
 ?>
@@ -24,15 +27,15 @@ if(isset($_POST['sent'])){
       <p class="fs-5 text-start m-0">No contact.</p> -->
       <p class="fs-3 text-start m-0">Add contact:</p>
     </div>
-      <div class=" mb-3 d-flex flex-column gap-2 "  >
+      <div class=" mb-3 d-flex flex-column gap-3 "  >
         
-        <input type="text" name="username" class="form-control"  placeholder="Username" >
+        <input type="text" name="username" class="form-control"  placeholder="Username" value="<?php echo $row['username']; ?>">
 
-        <input type="tel" name="phone" class="form-control"  placeholder="Phone" >
+        <input type="tel" name="phone" class="form-control"  placeholder="Phone" value="<?php echo $row['phone']; ?>">
         
-        <input type="email" name="email" class="form-control"  placeholder="Email" >
+        <input type="email" name="email" class="form-control"  placeholder="Email" value="<?php echo $row['email']; ?>">
         
-        <textarea class="form-control" name="addres" placeholder="Address" rows="3"></textarea >
+        <input type="text" name="addres" class="form-control"  placeholder="Email" value="<?php echo $row['address']; ?>">
         
       </div>
 

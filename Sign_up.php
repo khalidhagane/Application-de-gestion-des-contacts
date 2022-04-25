@@ -1,23 +1,27 @@
 <?php
+
 $display = "";
-// include 'conection.php';
+
 include 'class.php';
 include 'head.php';
 include 'navbar.php';
 
 if(isset($_POST['sent'])){
-    if($_POST['password1']===$_POST['password2']){
+    if($_POST['password1']==$_POST['password2']){
     
         $testobj = new User();
         $testobj->sign_up($_POST['username'],$_POST['email'],$_POST['password1']);
-        header('location: profile.php');
-   }else{
-    $error_pass = "password aren't match";
 
+        $_SESSION['username'] = $_POST['username'];
+
+        date_default_timezone_set("Africa/Casablanca");
+        $_SESSION['sigsup_date'] = date("l , d M  Y H:i:s A");
+        $_SESSION['last_login'] = date("l , d M  Y H:i:s A");
+
+        header('location: profile.php');
    }
 }
 ?>
-
 
 <main class="d-flex flex-row justify-content-evenly  flex-wrap">
 <div class="">
@@ -28,24 +32,21 @@ if(isset($_POST['sent'])){
         <div class="w-100 text-center">
         <h1 >sign_up</h1>
         </div>
-        <?php echo "<p class=\" alert-danger  rounded\" >  <?php if(isset ($error_pass)?>  </p>";?>
+
+        <span class="errorPss" ></span>
+        
         <div class=" mb-3 d-flex flex-column gap-2 mt-5"  >
-            <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
+            
             <input type="text" name="username" class="form-control" id="username" placeholder="Username">
-            <!-- <span id="username_message" ></span> -->
             <span class="errorU" ></span>
            
             <input type="email" name="email" class="form-control" id="email" placeholder="Email">
-            <!-- <span id="username_message" ></span> -->
             <span class="errorE"></span>
             
-
             <input type="password" name="password1" class="form-control" id="password1" placeholder="Password">
-            <!-- <span id="username_message" ></span> -->
             <span class="errorP1" ></span>
 
             <input type="password"  name="password2"class="form-control" id="password2" placeholder="Password verify">
-            <!-- <span id="username_message" ></span> -->
             <span class="errorP2" ></span>
 
             <span>Forgot Password ?</span>
@@ -65,7 +66,6 @@ if(isset($_POST['sent'])){
 <script src="main.js"></script>
 </body>
 </html>
-
 
 <?php
 

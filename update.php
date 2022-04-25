@@ -8,10 +8,11 @@ $testobj = new User();
 $id = $_GET['id'];
 $row = $testobj -> getacffichage($id);
 
-if(isset($_POST['sent'])){
+if(isset($_POST['Update'])){
   
   $testobj->editContact($_POST['username'],$_POST['email'], $_POST['phone'] ,$_POST['addres'],$_GET['id']);
   header('location: contact.php');
+  echo 'true';
   }
 ?>
 
@@ -19,7 +20,7 @@ if(isset($_POST['sent'])){
 <div class="">
       <img src="imag/contact.svg" alt="photo" style="width:90%; height: 330px;" >
     </div>
-  <form action="add_compte.php" method="post" class="sign_in  d-flex flex-column gap-3 ">
+  <form  method="post" class="sign_in  d-flex flex-column gap-3 ">
     <div class="w-100 text-center">
       <!-- <h1 class="fs-2 fw-normal text-start">contacts</h1>
       <br>
@@ -40,7 +41,7 @@ if(isset($_POST['sent'])){
       </div>
 
       <div>
-      <input type="submit"  name="sent" id="submit_btn" class="btn btn-secondary w-100 text-light " value="submit" >
+      <input type="submit"  name="Update" id="submit_btn" class="btn btn-secondary w-100 text-light " value="submit" >
       </div>
       
   

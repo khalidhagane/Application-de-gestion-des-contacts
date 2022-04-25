@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conection.php';
 class User extends Dbh{
 
@@ -19,24 +20,30 @@ class User extends Dbh{
         foreach ($users as $user){
             
            if($user['email']===$email && $user['password']===$password){
+
+            $_SESSION['username'] = $user['username'];
+
+             date_default_timezone_set("Africa/Casablanca");
+            $_SESSION['last_login'] = date("l , d M  Y H:i:s A");
+            $_SESSION['sigsup_date']=$user['date'];
+                        
            
            header('location: profile.php');
-        }
-       
+          }
         }
     }
 
 
 // function ajoute compte 
     public function sign_up($username, $email,$password){
+        date_default_timezone_set("Africa/Casablanca");
+        $date= date("l , d M  Y H:i:s A");
        
-        $sql = "INSERT INTO comptes(username, email, password) VALUES (?, ?, ? )";
+        $sql = "INSERT INTO comptes(username, email, password, date) VALUES (?, ?, ?, ?)";
         $stmt = $this->connect()->prepare($sql);
-        
-        if (!$stmt->execute([$username, $email, $password])){
+        if (!$stmt->execute([$username, $email, $password,$date])){
             echo 'error';
         }
-
         
 }
 //function ajoute contact
@@ -78,15 +85,8 @@ public function getacffichage($id){
     $stmt = $this->connect()->prepare($sql);
     $stmt -> bindParam(1,$id,PDO::PARAM_INT);
     $stmt->execute();
-    // $stmt->fetch();
-    // return $stmt;
-    try{
-      $stmt= $stmt->fetch();
-      return $stmt;
-    }
-    catch(Exception $ex){
-        echo'error';
-    }
+    $stmt = $stmt->fetch();
+    return $stmt;
     
 }
 
@@ -94,24 +94,11 @@ public function getacffichage($id){
 
 public function editContact($username,$phone,$email,$addres,$id){
        
-    $sql = "UPDATE  contact_list SET (username,phone, email,address) VALUES (?, ?,?,? ) WHERE id=?";
+    $sql = "UPDATE  contact_list SET username = '$username',phone = '$phone', email = '$email',address = '$addres' WHERE id = $id";
     $stmt = $this->connect()->prepare($sql);
-
-    $stmt->bindParam(1, $name, PDO::PARAM_STR);
-    $stmt->bindParam(2, $email, PDO::PARAM_STR);
-    $stmt->bindParam(3, $phone, PDO::PARAM_STR);
-    $stmt->bindParam(4, $adres, PDO::PARAM_STR);
-    $stmt->bindParam(5, $id, PDO::PARAM_INT);
     $stmt->execute();
-    // if (!$stmt->execute([$username, $phone, $email, $addres])){
-    //     echo 'error';
-    // }
     
 }
 }
-
-// $testobj = new User();
-// $testobj->getUsersStmt('wassim@gmail.com',123);
-
 
 ?>

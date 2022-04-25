@@ -23,8 +23,8 @@ include 'navbar.php';
   <thead>
     <tr>
       <th scope="col">Username:</th>
-      <th scope="col">Email</th>
       <th scope="col">phone</th>
+      <th scope="col">Email</th>
       <th scope="col">Address</th>
     </tr>
   </thead>

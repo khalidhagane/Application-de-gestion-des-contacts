@@ -1,11 +1,13 @@
 <?php
+session_start();
 $display = "";
 include 'head.php';
 include 'navbar.php';
 ?>
 
 <div>
-    <h1 class="fs-2">Welcome, alex!</h1>
+   
+    <h4 class="text-dark mt-3 fs-2">Welcome, <b> <?php if(isset($_SESSION['username']))echo $_SESSION['username']; ?>! </b></h4> 
     <br>
     <p class="fs-4">Your profile:</p>
 
@@ -24,17 +26,17 @@ include 'navbar.php';
   <tbody>
   <tr>
       <th scope="row">Username:</th>
-      <td>Alex</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">sigsup date:</th>
-      <td>Sun, 19 avr 2021 19:24:16 +0000</td>
-      
+      <td><h4 class="text-dark  fs-5"><b> <?php if(isset($_SESSION['username']))echo $_SESSION['username']; ?> </b></h4></td>
     </tr>
     <tr>
       <th scope="row">Last login:</th>
-      <td>Mon, 19 avr 2021 19:24:16 +0000</td>
+      <td><h4 class="text-dark  fs-5"><b> <?php if(isset($_SESSION['last_login']))echo $_SESSION['last_login']; ?> </b></h4></td>
+
+    </tr>
+   
+    <tr>
+      <th scope="row">sigsup date:</th>
+      <td><h4 class="text-dark  fs-5"><b> <?php if(isset($_SESSION['sigsup_date']))echo $_SESSION['sigsup_date']; ?> </b></h4></td>
       
     </tr>
     

@@ -1,7 +1,7 @@
 <?php
 $display = "";
 
-include 'class.php';
+include 'user.php';
 include 'head.php';
 include 'navbar.php';
 

@@ -1,5 +1,5 @@
 
-let form = document.getElementById('form');
+
 
 let username = document.getElementById('username');
 let email = document.getElementById('email');
@@ -25,7 +25,7 @@ form.addEventListener('submit',function(e){
         e.preventDefault();
     }
     else if(!usernameRegex.test(username.value)){
-        errorU.innerHTML="dakhal man 3 htal 15 caracters.";
+        errorU.innerHTML="Please enter 3 to 15 characters.";
         errorU.style.color='red';
         e.preventDefault();
 
@@ -36,12 +36,12 @@ form.addEventListener('submit',function(e){
 
     if(email.value.trim()==""){
         
-        errorE.innerHTML="le champs username est requis.";
+        errorE.innerHTML="le champs email est requis.";
         errorE.style.color='red';
         e.preventDefault();
     }
     else if(!emailRegex.test(email.value)){
-        errorE.innerHTML="dakhali email mzn lah ihafdak.";
+        errorE.innerHTML="error email must be example@gmail.";
         errorE.style.color='red';
         e.preventDefault();
     }
@@ -51,7 +51,7 @@ form.addEventListener('submit',function(e){
 
     if(password1.value.trim()==""){
         
-        errorP1.innerHTML="le champs username est requis.";
+        errorP1.innerHTML="le champs password est requis.";
         errorP1.style.color='red';
         e.preventDefault();
     }
@@ -67,12 +67,12 @@ form.addEventListener('submit',function(e){
 
     if(password2.value.trim()==""){
         
-        errorP2.innerHTML="le champs username est requis.";
+        errorP2.innerHTML="le champs password est requis.";
         errorP2.style.color='red';
         e.preventDefault();
     }
     else if(!passwordRegex.test(password2.value)){
-        errorP2.innerHTML="dakhal password2 mzn .";
+        errorP2.innerHTML='Password must have at least <ul><li class="text-danger">One special character !@#$%/|^&*</li><li class="text-danger">One digit(0-9)</li><li class="text-danger">One uppercase (A-Z)</li><li class="text-danger">One lowercase(a-z)</li>';
         errorP2.style.color='red';
         e.preventDefault();
 
@@ -89,49 +89,3 @@ form.addEventListener('submit',function(e){
 
     
 })   
-
-//*********validation de sign_in***********/
-
-// let form_in = document.getElementById('form_in');
-
-// let email_in = document.getElementById('email_in');
-// let password_in= document.getElementById('password_in');
-
-// let errorEmail = document.querySelector('.errorEmail');
-// let errorPassword = document.querySelector('.errorPassword');
-
-// console.log(form_in)
-// form_in.addEventListener('submit',function(e){
-
-//     if(email_in.value.trim()==""){
-        
-//         errorEmail.innerHTML="le champs username est requis.";
-//         errorEmail.style.color='red';
-//         e.preventDefault();
-//     }
-//     else if(!emailRegex.test(email_in.value)){
-//         errorEmail.innerHTML="dakhali email mzn lah ihafdak.";
-//         errorEmail.style.color='red';
-//         e.preventDefault();
-//     }
-//     else{
-//         errorEmail.innerHTML="";
-//     }
-
-//     if(password_in.value.trim()==""){
-        
-//         errorPassword.innerHTML="le champs username est requis.";
-//         errorPassword.style.color='red';
-//         e.preventDefault();
-//     }
-//     else if(!passwordRegex.test(password_in.value)){
-//         errorPassword.innerHTML = 'Password must have at least <ul><li class="text-danger">One special character !@#$%/|^&*</li><li class="text-danger">One digit(0-9)</li><li class="text-danger">One uppercase (A-Z)</li><li class="text-danger">One lowercase(a-z)</li>';
-//         errorPassword.style.color='red';
-//         e.preventDefault();
-//     }
-//     else{
-//         errorPassword.innerHTML="";
-//     }
-
-    
-// })   

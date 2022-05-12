@@ -1,6 +1,6 @@
 <?php
 session_start();
-$display = "";
+
 include 'head.php';
 include 'navbar.php';
 ?>

@@ -1,18 +1,19 @@
 <?php
-$display = "d-none";
-include 'class.php';
+
+include 'user.php';
 include 'head.php';
 include 'navbar.php';
 
-$testobj = new User();
+
 $id = $_GET['id'];
+$testobj = new User();
 $row = $testobj -> getacffichage($id);
 
 if(isset($_POST['Update'])){
   
-  $testobj->editContact($_POST['username'],$_POST['email'], $_POST['phone'] ,$_POST['addres'],$_GET['id']);
+  $testobj->editContact($_POST['username'], $_POST['phone'],$_POST['email'] ,$_POST['addres'],$_GET['id']);
   header('location: contact.php');
-  echo 'true';
+  
   }
 ?>
 
@@ -22,10 +23,7 @@ if(isset($_POST['Update'])){
     </div>
   <form  method="post" class="sign_in  d-flex flex-column gap-3 ">
     <div class="w-100 text-center">
-      <!-- <h1 class="fs-2 fw-normal text-start">contacts</h1>
-      <br>
-      <p class="fs-3 text-start m-0">Contact list:</p>
-      <p class="fs-5 text-start m-0">No contact.</p> -->
+      
       <p class="fs-3 text-start m-0">Add contact:</p>
     </div>
       <div class=" mb-3 d-flex flex-column gap-3 "  >

@@ -1,8 +1,6 @@
 <?php
- 
-$display = "d-none";
-
-include 'class.php';
+$display="d-none";
+include 'user.php';
 include 'head.php';
 include 'navbar.php';
 ?>
@@ -26,7 +24,7 @@ if(isset($_POST['sent'])){
       <h1 >sign_in</h1>
     </div>
    
-      <div class=" mb-3 d-flex flex-column gap-2 mt-5"  >
+      <div class=" mb-3 d-flex flex-column gap-2 mt-3"  >
       
         <input type="email"  name="email"class="form-control" id="email" placeholder="Email">
         

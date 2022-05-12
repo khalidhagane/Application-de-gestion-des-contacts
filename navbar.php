@@ -1,6 +1,6 @@
-<?php
 
-$header = <<<navbar
+
+
 
 <body class="d-flex flex-column gap-5">
 <div class="header bg-dark">
@@ -8,14 +8,13 @@ $header = <<<navbar
        <a href="index.php" class="text-light fw-bold navbar-brand">Contact list</a>
         <p></p>
         <ul class="d-flex list-unstyled m-0 ">
-            <li><a href="profile.php" class="btn text-light fw-bold $display"> </a></li>
-            <li><a href="contact.php" class="btn text-light fw-bold $display"> contact </a></li>
+            <li><a href="profile.php" class="btn text-light fw-bold <?php $display?>"><?php if(isset($_SESSION['username']))echo $_SESSION['username']; ?></a></li>
+            <li><a href="contact.php" class="btn text-light fw-bold <?php  echo $display;?>"> contact </a></li>
             <li><a href="logout.php" class=" btn text-light fw-bold"><i class="fas fa-globe"></i> Logout </a></li>
         </ul>
     </div>
 </div>
 <div class="px-4">
-navbar;
-echo $header;
+
 
 

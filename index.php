@@ -1,5 +1,5 @@
 <?php
-$display = "";
+$display="d-none";
 include 'head.php';
 include 'navbar.php';
 ?>
